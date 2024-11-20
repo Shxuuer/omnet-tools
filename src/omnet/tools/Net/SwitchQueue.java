@@ -1,3 +1,5 @@
+package omnet.tools.Net;
+
 public class SwitchQueue {
     String idleSlope;
     boolean initiallyOpen = true;

@@ -1,6 +1,11 @@
+package omnet.tools.utils;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+
+import omnet.tools.Net.NetWork;
+import omnet.tools.Net.Node;
+import omnet.tools.Net.Switch;
 
 public class Writer {
     FileWriter fileWriter;

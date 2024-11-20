@@ -1,5 +1,7 @@
+package omnet.tools.Net;
+
 public class App {
-    enum AppType {
+    public enum AppType {
         IN, OUT
     }
 
