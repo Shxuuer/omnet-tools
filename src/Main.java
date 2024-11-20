@@ -6,6 +6,8 @@ public class Main {
         NetWork network = createNetwork();
 
         writer.write(network);
+
+        TSNkit.runTSNkit();
     }
 
     public static NetWork createNetwork() {

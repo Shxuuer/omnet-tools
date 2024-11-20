@@ -1,0 +1,1 @@
+python3 -m tsnkit.src.tsnkit.models.smt_wa tsnkit_data/task.csv tsnkit_data/topo.csv
