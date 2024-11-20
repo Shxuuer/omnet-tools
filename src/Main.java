@@ -1,7 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        Writer writer = new Writer();
+        // Writer writer = new Writer("/home/zhangzhi/qzz/omnetpp-6.0.3/workspace/inet4.5/motivation/omnetpp.ini");
+        Writer writer = new Writer("./omnetpp.ini");
+        
         NetWork network = createNetwork();
+
         writer.write(network);
     }
 

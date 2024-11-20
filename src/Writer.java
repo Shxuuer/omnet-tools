@@ -8,9 +8,9 @@ public class Writer {
     String description = "Loop simulation";
     String simulation_time = "5s";
 
-    public Writer() {
+    public Writer(String iniFilePath) {
         try {
-            fileWriter = new FileWriter("network_config.ini");
+            fileWriter = new FileWriter(iniFilePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,5 +68,9 @@ public class Writer {
                 fileWriter.write(String.format("*.%s.app[%d].source.initialProductionOffset = %s\n", node.name, i, app.initialProductionOffset));
             }
         }
+    }
+
+    private void writeGCL(String tsnOutFile) {
+
     }
 }
