@@ -18,16 +18,12 @@ public class Node {
         if (app.type == App.AppType.IN) app.port = used_port++;
     }
 
-    public ArrayList<App> getApps() {
-        return apps;
+    public int getAppsSize() {
+        return apps.size();
     }
 
     public App getApp(int index) {
         return apps.get(index);
-    }
-
-    public String toString() {
-        return name;
     }
 
     public String getIdentifierMap() {
@@ -35,9 +31,22 @@ public class Node {
         for (App app : apps) if (app.type == App.AppType.OUT) numberOfOutApps++;
         String[] identifiers = new String[numberOfOutApps];
         for (int i = 0; i < apps.size(); i++) {
-            if (apps.get(i).type == App.AppType.OUT)
-                identifiers[i] = String.format("\n\t{stream: \"%s\", packetFilter: expr(udp.destPort == %d)}", apps.get(i).streamName, apps.get(i).port);
+            if (getApp(i).type == App.AppType.OUT)
+                identifiers[i] = String.format("\n\t{stream: \"%s\", packetFilter: expr(udp.destPort == %d)}", getApp(i).streamName, getApp(i).destPort);
         }
         return String.format("*.%s.bridging.streamIdentifier.identifier.mapping = [%s]", name, String.join(",", identifiers));
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (haveInApp) sb.append(String.format("*.%s.hasOutgoingStreams = true\n", name));
+        if (haveOutApp) {
+            sb.append(String.format("*.%s.hasIncomingStreams = true\n", name));
+            sb.append(getIdentifierMap() + "\n");
+        }
+        sb.append(String.format("*.%s.numApps = %d\n", name, apps.size()));
+        for (App app : apps) sb.append(app.toString());
+        return sb.toString();
     }
 }
