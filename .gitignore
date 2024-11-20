@@ -28,5 +28,8 @@ bin/
 ### Mac OS ###
 .DS_Store
 .cmdenv-log
+
+### project files ###
 --*.csv
 *.class
+*.ini
