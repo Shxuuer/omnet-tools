@@ -1,6 +1,6 @@
 import omnet.tools.Net.*;
-import omnet.tools.utils.*;
 import omnet.tools.SoftwareInterface.*;
+import omnet.tools.tools.*;
 
 public class Main {
     public static void main(String[] args) {

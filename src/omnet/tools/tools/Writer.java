@@ -1,4 +1,4 @@
-package omnet.tools.utils;
+package omnet.tools.tools;
 
 import java.io.FileWriter;
 import java.io.IOException;
